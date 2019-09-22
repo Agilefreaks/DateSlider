@@ -4,10 +4,13 @@ import 'eventsModel.dart';
 
 class MainPageRepository {
   Future<List> getEvents(pageIndex, limit) async {
-    String url = "";
+    String url =
+        "https://my-json-server.typicode.com/AlexandraDamaschin/DateSliderFakeAPI/events";
     var response = await http.get(url);
 
     DateSlider events = dateSliderFromJson(response.body);
-    return events;
+
+    List<Event> listOfEvents = new List<Event>();
+    return listOfEvents;
   }
 }
