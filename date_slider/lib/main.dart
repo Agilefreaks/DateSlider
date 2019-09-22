@@ -1,10 +1,14 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
-
+import 'dart:ui' as ui;
 import 'dateSlider.dart';
 
 main() {
-  runApp(MainPage());
+  runApp(new MediaQuery(
+      data: new MediaQueryData.fromWindow(ui.window),
+      child: new Directionality(
+          textDirection: TextDirection.rtl, child: new MainPage())));
+  // runApp(MainPage());
 }
 
 class MainPage extends StatefulWidget {
@@ -17,10 +21,13 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
+    return 
+    SingleChildScrollView(
         child: Container(
-      height: 200,
+      // height: 500,
       child: Column(children: <Widget>[
+        // Text("Hello"),
+        // Text("Say hello")
         Container(child: DateSlider()),
       ]),
     ));

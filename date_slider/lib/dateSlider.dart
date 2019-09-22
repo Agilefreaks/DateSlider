@@ -3,6 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:intl/intl.dart';
 
+import 'dateSliderItem.dart';
 import 'eventsModel.dart';
 
 class DateSlider extends StatefulWidget {
@@ -32,27 +33,28 @@ class _DateSliderState extends State<DateSlider> {
   }
 
   Widget _buildDateSlider() {
+    Size screenSize = MediaQuery.of(context).size;
     //the slider items will cover 90% of the page
     //the rest will be allocated as padding
-    var sliderTotalWidth = 200;
+    var sliderTotalWidth = screenSize.width;
     var pageSize =
         ((sliderTotalWidth / DEFAULT_ITEM_SIZE) / DEFAULT_PAGE_SIZE).floor() *
             DEFAULT_PAGE_SIZE;
 
-    double emptySpace = 300 - (DEFAULT_ITEM_SIZE * pageSize);
+    double emptySpace = screenSize.width - (DEFAULT_ITEM_SIZE * pageSize);
     return new PagewiseListView(
       //this makes scrolling "pageSize" items at once
       physics: PageScrollPhysics(),
       pageSize: pageSize,
-      scrollDirection: Axis.horizontal,
+      scrollDirection: Axis.vertical,
       reverse: true,
-      shrinkWrap: false,
+      shrinkWrap: true,
       itemBuilder: (BuildContext context, entry, index) {
         return GestureDetector(
             child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: emptySpace / (pageSize * 2)),
-                child: buildDateSliderItem(entry)),
+                child: Text("Hello")), //buildDateSliderItem(entry)),
             onTap: () {
               setState(() {});
             });
