@@ -54,7 +54,7 @@ class _DateSliderState extends State<DateSlider> {
             child: Padding(
                 padding: EdgeInsets.symmetric(
                     horizontal: emptySpace / (pageSize * 2)),
-                child: Text("Hello")), //buildDateSliderItem(entry)),
+                child: buildDateSliderItem(entry)),
             onTap: () {
               setState(() {});
             });

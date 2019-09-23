@@ -1,4 +1,5 @@
 import 'package:http/http.dart' as http;
+import 'package:intl/intl.dart';
 
 import 'eventsModel.dart';
 
@@ -8,9 +9,17 @@ class MainPageRepository {
         "https://my-json-server.typicode.com/AlexandraDamaschin/DateSliderFakeAPI/events";
     var response = await http.get(url);
 
-    List<DateSliderItem> item = dateSliderFromJson(response.body);
+    List<DateSliderItem> items = dateSliderFromJson(response.body);
 
     List<DateSliderItem> listOfEvents = new List<DateSliderItem>();
+    for (var item in items) {
+      int i = 0;
+      listOfEvents.insert(
+          i,
+          DateSliderItem(
+              id: item.id, date: item.date, eventName: item.eventName));
+      i++;
+    }
     return listOfEvents;
   }
 }
