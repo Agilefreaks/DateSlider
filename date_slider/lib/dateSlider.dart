@@ -63,7 +63,7 @@ class _DateSliderState extends State<DateSlider> {
     );
   }
 
-  Widget buildDateSliderItem(Event event) {
+  Widget buildDateSliderItem(DateSliderItem event) {
     String entryDateAsDate = DateFormat.yMd().format(event.date);
     String selectedDateAsDate = DateFormat.yMd().format(selectedDay);
     if (entryDateAsDate == selectedDateAsDate)

@@ -1,38 +1,23 @@
 import 'dart:convert';
 
-DateSlider dateSliderFromJson(String str) =>
-    DateSlider.fromJson(json.decode(str));
+List<DateSliderItem> dateSliderFromJson(String str) =>
+    List<DateSliderItem>.from(json.decode(str).map((x) => DateSliderItem.fromJson(x)));
 
-String dateSliderToJson(DateSlider data) => json.encode(data.toJson());
+String dateSliderToJson(List<DateSliderItem> data) =>
+    json.encode(List<dynamic>.from(data.map((x) => x.toJson())));
 
-class DateSlider {
-  List<Event> events;
-
-  DateSlider({
-    this.events,
-  });
-
-  factory DateSlider.fromJson(Map<String, dynamic> json) => DateSlider(
-        events: List<Event>.from(json["events"].map((x) => Event.fromJson(x))),
-      );
-
-  Map<String, dynamic> toJson() => {
-        "events": List<dynamic>.from(events.map((x) => x.toJson())),
-      };
-}
-
-class Event {
+class DateSliderItem {
   int id;
   DateTime date;
   String eventName;
 
-  Event({
+  DateSliderItem({
     this.id,
     this.date,
     this.eventName,
   });
 
-  factory Event.fromJson(Map<String, dynamic> json) => Event(
+  factory DateSliderItem.fromJson(Map<String, dynamic> json) => DateSliderItem(
         id: json["id"],
         date: DateTime.parse(json["date"]),
         eventName: json["eventName"],

@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'eventsModel.dart';
 
 class ActiveItem extends StatelessWidget {
-  final Event item;
+  final DateSliderItem item;
   ActiveItem({Key key, @required this.item}) : super(key: key);
 
   @override
@@ -33,7 +33,7 @@ class ActiveItem extends StatelessWidget {
 }
 
 class InactiveItem extends StatelessWidget {
-  final Event item;
+  final DateSliderItem item;
   InactiveItem({Key key, @required this.item}) : super(key: key);
 
   @override

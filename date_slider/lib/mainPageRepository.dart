@@ -8,9 +8,9 @@ class MainPageRepository {
         "https://my-json-server.typicode.com/AlexandraDamaschin/DateSliderFakeAPI/events";
     var response = await http.get(url);
 
-    DateSlider events = dateSliderFromJson(response.body);
+    List<DateSliderItem> item = dateSliderFromJson(response.body);
 
-    List<Event> listOfEvents = new List<Event>();
+    List<DateSliderItem> listOfEvents = new List<DateSliderItem>();
     return listOfEvents;
   }
 }
