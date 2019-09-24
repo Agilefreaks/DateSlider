@@ -22,7 +22,7 @@ class ActiveItem extends StatelessWidget {
           backgroundColor: Colors.blue,
           radius: 25,
           initialsText: Text(
-            item.date.month.toString(),
+            item.date.day.toString(),
             style: TextStyle(
                 color: Colors.white, fontWeight: FontWeight.bold, fontSize: 18),
           ),

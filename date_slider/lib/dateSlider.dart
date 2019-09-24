@@ -13,9 +13,17 @@ class DateSlider extends StatefulWidget {
   _DateSliderState createState() => _DateSliderState();
 }
 
+String formatDateTime(DateTime dateTime, String format) {
+  final DateFormat formatter = new DateFormat(format);
+
+  return formatter.format(dateTime);
+}
+
 class _DateSliderState extends State<DateSlider> {
-  // DateTime selectedDay = DateTime.parse("yyyy-MM-dd");
-  DateTime selectedDay = DateTime.now();
+  // DateTime selectedDay = DateTime.now();
+  DateTime selectedDay =
+      DateTime.parse(formatDateTime(DateTime.now(), "yyyy-MM-dd"));
+
   final MainPageBloc _mainPageBloc = MainPageBloc();
 
   //dates
@@ -46,7 +54,7 @@ class _DateSliderState extends State<DateSlider> {
       //this makes scrolling "pageSize" items at once
       physics: PageScrollPhysics(),
       pageSize: pageSize,
-      scrollDirection: Axis.vertical,
+      scrollDirection: Axis.horizontal,
       reverse: true,
       shrinkWrap: true,
       itemBuilder: (BuildContext context, entry, index) {
