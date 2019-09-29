@@ -13,12 +13,12 @@ class MainPageRepository {
     List<DateSliderItem> listOfEvents = new List<DateSliderItem>();
     for (var item in items) {
       if (listOfEvents.length <7) {
-        int i = 0;
-        listOfEvents.insert(
-            i,
-            DateSliderItem(
-                id: item.id, date: item.date, eventName: item.eventName));
-        i++;
+      int i = 0;
+      listOfEvents.insert(
+          i,
+          DateSliderItem(
+              id: item.id, date: item.date, eventName: item.eventName));
+      i++;
       }
     }
     return listOfEvents;

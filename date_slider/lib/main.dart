@@ -4,11 +4,6 @@ import 'dateSlider.dart';
 
 main() async {
   runApp(MaterialApp(home: MainPage()));
-  // runApp(new MediaQuery(
-  //     data: new MediaQueryData.fromWindow(ui.window),
-  //     child: new Directionality(
-  //         textDirection: TextDirection.rtl, child: new MainPage())));
-  // runApp(MainPage());
 }
 
 class MainPage extends StatefulWidget {
@@ -21,15 +16,7 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return SingleChildScrollView(
-        child: Container(
-      height:  MediaQuery.of(context).size.height,
-      child: Column(children: <Widget>[
-        // Text("Hello"),
-        // Text("Say hello")
-        Container(child: DateSlider()),
-      ]),
-    ));
+    return Scaffold(body: DateSlider());
   }
 
   @override
