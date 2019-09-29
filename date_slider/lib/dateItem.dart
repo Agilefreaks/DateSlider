@@ -13,8 +13,9 @@ class ActiveItem extends StatelessWidget {
     return Column(
       children: <Widget>[
         Text(
-          item.date.toIso8601String(),
-          style: TextStyle(color: Colors.blue),
+          item.date.month.toString(),
+          style: TextStyle(
+            color: Colors.blue, fontSize: 14),
         ),
         CircularProfileAvatar(
           '',
@@ -39,14 +40,14 @@ class InactiveItem extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Column(children: <Widget>[
-      Text(item.date.toIso8601String()),
+      Text(item.date.month.toString(), style: TextStyle(fontSize: 14)),
       CircularProfileAvatar(
         '',
         elevation: 4,
         radius: 25,
         borderColor: Colors.grey,
         initialsText: Text(
-          item.date.month.toString(),
+          item.date.day.toString(),
           style: TextStyle(fontSize: 18),
         ),
       )

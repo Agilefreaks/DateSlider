@@ -3,7 +3,7 @@ import 'package:flutter/cupertino.dart';
 import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:intl/intl.dart';
 
-import 'dateSliderItem.dart';
+import 'dateItem.dart';
 import 'eventsModel.dart';
 
 class DateSlider extends StatefulWidget {
@@ -20,7 +20,6 @@ String formatDateTime(DateTime dateTime, String format) {
 }
 
 class _DateSliderState extends State<DateSlider> {
-  // DateTime selectedDay = DateTime.now();
   DateTime selectedDay =
       DateTime.parse(formatDateTime(DateTime.now(), "yyyy-MM-dd"));
 
