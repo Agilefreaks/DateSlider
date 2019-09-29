@@ -1,5 +1,6 @@
 import 'package:date_slider/mainPageBloc.dart';
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_pagewise/flutter_pagewise.dart';
 import 'package:intl/intl.dart';
 
@@ -34,9 +35,23 @@ class _DateSliderState extends State<DateSlider> {
 
   int pageSize = 7;
 
+  DateSliderItem currentDateSliderItem;
+
+  @override
+  void initState() {
+    currentDateSliderItem = new DateSliderItem();
+    super.initState();
+  }
+
   @override
   Widget build(BuildContext context) {
-    return _buildDateSlider();
+    return Scaffold(
+      body: Column(
+        children: <Widget>[
+          Container(height: 100, child: _buildDateSlider()),
+        ],
+      ),
+    );
   }
 
   Widget _buildDateSlider() {
@@ -64,6 +79,8 @@ class _DateSliderState extends State<DateSlider> {
                     horizontal: emptySpace / (pageSize * 2)),
                 child: buildDateSliderItem(entry)),
             onTap: () {
+              selectedDay = entry.date;
+              currentDateSliderItem = entry;
               setState(() {});
             });
       },
