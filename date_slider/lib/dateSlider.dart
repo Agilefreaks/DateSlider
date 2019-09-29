@@ -56,6 +56,7 @@ class _DateSliderState extends State<DateSlider> {
       scrollDirection: Axis.horizontal,
       reverse: true,
       shrinkWrap: true,
+      padding: EdgeInsets.only(top: 20),
       itemBuilder: (BuildContext context, entry, index) {
         return GestureDetector(
             child: Padding(

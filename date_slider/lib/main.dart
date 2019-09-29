@@ -16,7 +16,8 @@ class MainPage extends StatefulWidget {
 class _MainPageState extends State<MainPage> {
   @override
   Widget build(BuildContext context) {
-    return Scaffold(body: DateSlider());
+    return Scaffold(
+        appBar: AppBar(title: Text("Date slider")), body: DateSlider());
   }
 
   @override
